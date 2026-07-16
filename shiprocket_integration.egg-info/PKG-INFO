@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: shiprocket_integration
+Version: 1.0.0
+Summary: Shiprocket Shipping Integration for ERPNext v16
+Author: Reformiqo
+Author-email: hello@reformiqo.com
+Requires-Dist: frappe
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
+Dynamic: summary

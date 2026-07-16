@@ -1,0 +1,389 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2026-03-11 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "reference_section",
+  "delivery_note",
+  "sales_invoice",
+  "customer",
+  "customer_name",
+  "reference_column_break",
+  "company",
+  "posting_date",
+  "status",
+  "shiprocket_details_section",
+  "sr_order_id",
+  "sr_shipment_id",
+  "sr_channel_order_id",
+  "shiprocket_details_column_break",
+  "awb_number",
+  "courier_name",
+  "courier_id",
+  "package_details_section",
+  "weight",
+  "length",
+  "breadth",
+  "height",
+  "package_details_column_break",
+  "payment_method",
+  "pickup_location",
+  "shipping_address_section",
+  "shipping_customer_name",
+  "shipping_phone",
+  "shipping_email",
+  "shipping_address_column_break",
+  "shipping_address_line1",
+  "shipping_address_line2",
+  "shipping_city",
+  "shipping_state",
+  "shipping_pincode",
+  "shipping_country",
+  "tracking_section",
+  "tracking_url",
+  "current_status",
+  "tracking_column_break",
+  "last_synced",
+  "tracking_events_section",
+  "tracking_events",
+  "labels_section",
+  "label_url",
+  "manifest_url",
+  "labels_column_break",
+  "invoice_url"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "SR-SHIP-.#####",
+   "default": "SR-SHIP-.#####"
+  },
+  {
+   "fieldname": "reference_section",
+   "fieldtype": "Section Break",
+   "label": "Reference"
+  },
+  {
+   "fieldname": "delivery_note",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Delivery Note",
+   "options": "Delivery Note"
+  },
+  {
+   "fieldname": "sales_invoice",
+   "fieldtype": "Link",
+   "label": "Sales Invoice",
+   "options": "Sales Invoice"
+  },
+  {
+   "fetch_from": "delivery_note.customer",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fetch_from": "delivery_note.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reference_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "delivery_note.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nOrder Created\nAWB Assigned\nPickup Scheduled\nIn Transit\nOut for Delivery\nDelivered\nRTO Initiated\nRTO Delivered\nCancelled\nError",
+   "read_only": 1
+  },
+  {
+   "fieldname": "shiprocket_details_section",
+   "fieldtype": "Section Break",
+   "label": "Shiprocket Details"
+  },
+  {
+   "fieldname": "sr_order_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Shiprocket Order ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sr_shipment_id",
+   "fieldtype": "Data",
+   "label": "Shiprocket Shipment ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sr_channel_order_id",
+   "fieldtype": "Data",
+   "label": "Channel Order ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "shiprocket_details_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "awb_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "AWB Number",
+   "read_only": 1
+  },
+  {
+   "fieldname": "courier_name",
+   "fieldtype": "Data",
+   "label": "Courier Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "courier_id",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Courier ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "package_details_section",
+   "fieldtype": "Section Break",
+   "label": "Package Details"
+  },
+  {
+   "default": "0.5",
+   "fieldname": "weight",
+   "fieldtype": "Float",
+   "label": "Weight (kg)"
+  },
+  {
+   "fieldname": "length",
+   "fieldtype": "Float",
+   "label": "Length (cm)"
+  },
+  {
+   "fieldname": "breadth",
+   "fieldtype": "Float",
+   "label": "Breadth (cm)"
+  },
+  {
+   "fieldname": "height",
+   "fieldtype": "Float",
+   "label": "Height (cm)"
+  },
+  {
+   "fieldname": "package_details_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Prepaid",
+   "fieldname": "payment_method",
+   "fieldtype": "Select",
+   "label": "Payment Method",
+   "options": "Prepaid\nCOD"
+  },
+  {
+   "fieldname": "pickup_location",
+   "fieldtype": "Data",
+   "label": "Pickup Location"
+  },
+  {
+   "fieldname": "shipping_address_section",
+   "fieldtype": "Section Break",
+   "label": "Shipping Address"
+  },
+  {
+   "fieldname": "shipping_customer_name",
+   "fieldtype": "Data",
+   "label": "Recipient Name"
+  },
+  {
+   "fieldname": "shipping_phone",
+   "fieldtype": "Data",
+   "label": "Phone"
+  },
+  {
+   "fieldname": "shipping_email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "shipping_address_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shipping_address_line1",
+   "fieldtype": "Data",
+   "label": "Address Line 1"
+  },
+  {
+   "fieldname": "shipping_address_line2",
+   "fieldtype": "Data",
+   "label": "Address Line 2"
+  },
+  {
+   "fieldname": "shipping_city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "shipping_state",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "fieldname": "shipping_pincode",
+   "fieldtype": "Data",
+   "label": "Pincode"
+  },
+  {
+   "default": "India",
+   "fieldname": "shipping_country",
+   "fieldtype": "Data",
+   "label": "Country"
+  },
+  {
+   "fieldname": "tracking_section",
+   "fieldtype": "Section Break",
+   "label": "Tracking"
+  },
+  {
+   "fieldname": "tracking_url",
+   "fieldtype": "Data",
+   "label": "Tracking URL",
+   "options": "URL",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_status",
+   "fieldtype": "Data",
+   "label": "Current Tracking Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tracking_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_synced",
+   "fieldtype": "Datetime",
+   "label": "Last Synced",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tracking_events_section",
+   "fieldtype": "Section Break",
+   "label": "Tracking Events"
+  },
+  {
+   "fieldname": "tracking_events",
+   "fieldtype": "Table",
+   "label": "Tracking Events",
+   "options": "Shiprocket Shipment Event",
+   "read_only": 1
+  },
+  {
+   "fieldname": "labels_section",
+   "fieldtype": "Section Break",
+   "label": "Labels & Documents"
+  },
+  {
+   "fieldname": "label_url",
+   "fieldtype": "Data",
+   "label": "Label URL",
+   "options": "URL",
+   "read_only": 1
+  },
+  {
+   "fieldname": "manifest_url",
+   "fieldtype": "Data",
+   "label": "Manifest URL",
+   "options": "URL",
+   "read_only": 1
+  },
+  {
+   "fieldname": "labels_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "invoice_url",
+   "fieldtype": "Data",
+   "label": "Invoice URL",
+   "options": "URL",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-03-11 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Shiprocket Integration",
+ "name": "Shiprocket Shipment",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock User"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "awb_number",
+ "track_changes": 1
+}

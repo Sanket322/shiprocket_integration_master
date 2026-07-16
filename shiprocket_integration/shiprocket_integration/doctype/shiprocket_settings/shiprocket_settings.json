@@ -1,0 +1,234 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-03-11 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "api_credentials_section",
+  "api_email",
+  "api_password",
+  "api_credentials_column_break",
+  "auth_token",
+  "token_expiry",
+  "default_shipment_settings_section",
+  "default_pickup_location",
+  "auto_create_order_on_submit",
+  "default_shipment_settings_column_break",
+  "default_length",
+  "default_breadth",
+  "default_height",
+  "webhook_settings_section",
+  "webhook_secret",
+  "order_settings_section",
+  "default_payment_method",
+  "order_settings_column_break",
+  "default_channel_id",
+  "auto_invoice_section",
+  "auto_create_invoice_on_delivered",
+  "auto_submit_invoice",
+  "auto_create_payment_on_delivered",
+  "auto_submit_payment",
+  "auto_invoice_column_break",
+  "default_mode_of_payment",
+  "default_payment_account",
+  "default_cost_center"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "api_credentials_section",
+   "fieldtype": "Section Break",
+   "label": "API Credentials"
+  },
+  {
+   "fieldname": "api_email",
+   "fieldtype": "Data",
+   "label": "Shiprocket API Email",
+   "mandatory_depends_on": "eval:doc.enabled",
+   "options": "Email"
+  },
+  {
+   "fieldname": "api_password",
+   "fieldtype": "Password",
+   "label": "Shiprocket API Password",
+   "mandatory_depends_on": "eval:doc.enabled"
+  },
+  {
+   "fieldname": "api_credentials_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "auth_token",
+   "fieldtype": "Small Text",
+   "hidden": 1,
+   "label": "Auth Token",
+   "read_only": 1
+  },
+  {
+   "fieldname": "token_expiry",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "Token Expiry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "default_shipment_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Default Shipment Settings"
+  },
+  {
+   "fieldname": "default_pickup_location",
+   "fieldtype": "Data",
+   "label": "Default Pickup Location"
+  },
+  {
+   "default": "0",
+   "fieldname": "auto_create_order_on_submit",
+   "fieldtype": "Check",
+   "label": "Auto-Create Shiprocket Order on DN Submit"
+  },
+  {
+   "fieldname": "default_shipment_settings_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "10",
+   "fieldname": "default_length",
+   "fieldtype": "Float",
+   "label": "Default Package Length (cm)"
+  },
+  {
+   "default": "10",
+   "fieldname": "default_breadth",
+   "fieldtype": "Float",
+   "label": "Default Package Breadth (cm)"
+  },
+  {
+   "default": "10",
+   "fieldname": "default_height",
+   "fieldtype": "Float",
+   "label": "Default Package Height (cm)"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "webhook_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Webhook Settings"
+  },
+  {
+   "fieldname": "webhook_secret",
+   "fieldtype": "Data",
+   "label": "Webhook Secret"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "order_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Order Settings"
+  },
+  {
+   "default": "Prepaid",
+   "fieldname": "default_payment_method",
+   "fieldtype": "Select",
+   "label": "Default Payment Method",
+   "options": "Prepaid\nCOD"
+  },
+  {
+   "fieldname": "order_settings_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_channel_id",
+   "fieldtype": "Data",
+   "label": "Channel ID"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "auto_invoice_section",
+   "fieldtype": "Section Break",
+   "label": "Auto-Invoice on Delivered"
+  },
+  {
+   "default": "0",
+   "fieldname": "auto_create_invoice_on_delivered",
+   "fieldtype": "Check",
+   "label": "Auto-Create Sales Invoice when Delivered"
+  },
+  {
+   "default": "1",
+   "depends_on": "eval:doc.auto_create_invoice_on_delivered",
+   "fieldname": "auto_submit_invoice",
+   "fieldtype": "Check",
+   "label": "Auto-Submit Sales Invoice"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.auto_create_invoice_on_delivered",
+   "fieldname": "auto_create_payment_on_delivered",
+   "fieldtype": "Check",
+   "label": "Auto-Create Payment Entry when Delivered"
+  },
+  {
+   "default": "1",
+   "depends_on": "eval:doc.auto_create_payment_on_delivered",
+   "fieldname": "auto_submit_payment",
+   "fieldtype": "Check",
+   "label": "Auto-Submit Payment Entry"
+  },
+  {
+   "fieldname": "auto_invoice_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.auto_create_payment_on_delivered",
+   "fieldname": "default_mode_of_payment",
+   "fieldtype": "Link",
+   "label": "Default Mode of Payment",
+   "options": "Mode of Payment"
+  },
+  {
+   "depends_on": "eval:doc.auto_create_payment_on_delivered",
+   "description": "Bank/Cash account credited by the auto-created Payment Entry. If empty, falls back to the Mode of Payment's default account.",
+   "fieldname": "default_payment_account",
+   "fieldtype": "Link",
+   "label": "Default Paid-To Account",
+   "options": "Account"
+  },
+  {
+   "depends_on": "eval:doc.auto_create_invoice_on_delivered",
+   "fieldname": "default_cost_center",
+   "fieldtype": "Link",
+   "label": "Default Cost Center",
+   "options": "Cost Center"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-03-11 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Shiprocket Integration",
+ "name": "Shiprocket Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
