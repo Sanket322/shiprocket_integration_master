@@ -18,9 +18,6 @@ fixtures = [
 		"dt": "Custom Field",
 		"filters": [["module", "=", "Shiprocket Integration"]],
 	},
-	{
-		"dt": "Shiprocket Settings",
-	}
 ]
 
 # Server-side hook on DN submit
